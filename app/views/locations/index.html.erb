@@ -1,0 +1,21 @@
+<% @locations.inspect %>
+<section id="info">
+	<header>Appetite</header>
+
+	<ul>
+	<% @locations.each do |l| %>
+
+		<li data-lat="<%= l.lat %>" data-lng="<%= l.long %>">
+			<h3><%= l.title %></h3>
+			<p><%= l.address%></p>
+		</li>
+
+	<% end %>
+	</ul>
+
+
+	
+</section>
+
+
+<section id="map"><%= link_to "New Location", locations_new_path %></section>
