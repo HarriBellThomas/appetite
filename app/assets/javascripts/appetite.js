@@ -50,7 +50,12 @@ $(document).ready(function () {
 
 	$( "#search" ).submit(function( event ) {
 		event.preventDefault();
-		window.location.replace("/?search=" + encodeURIComponent(jQuery('#search_value').val()));
+		var search_term = jQuery('#search_value').val();
+		if (search_term != "") {
+			window.location.replace("/?search=" + encodeURIComponent(search_term));
+		} else {
+			window.location.replace("/");
+		}
 	});
 
 	$( "search" );
