@@ -4,6 +4,6 @@ class Location < ActiveRecord::Base
 	validates :address, presence: true
 
 	geocoded_by :address, latitude: :lat, longitude: :long   # can also be an IP address
-	after_validation :geocode          # auto-fetch coordinates
+	after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 
 end

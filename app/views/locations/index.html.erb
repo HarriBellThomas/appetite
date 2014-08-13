@@ -1,6 +1,15 @@
 <% @locations.inspect %>
 <section id="info">
 	<header>Appetite</header>
+		<%= @alerts %>
+		<hr><br>
+
+		<form id="search">
+			<input style="width:100%;" type="text" placeholder="search" id="search_value" />
+			<input style="width:100%;" type="submit" id="submit" />
+		</form>
+
+		<br><hr>
 
 	<ul>
 	<% @locations.each do |l| %>
@@ -8,14 +17,18 @@
 		<li data-lat="<%= l.lat %>" data-lng="<%= l.long %>">
 			<h3><%= l.title %></h3>
 			<p><%= l.address%></p>
+			<% if @search_mode %>
+			<p><%= l.distance.round(3) %> km away</p>
+			<% end %>
 		</li>
 
 	<% end %>
 	</ul>
-
-
 	
 </section>
 
 
-<section id="map"><%= link_to "New Location", locations_new_path %></section>
+<section id="map"></section>
+
+
+<%= link_to "New Location", locations_new_path, class: "button" %>

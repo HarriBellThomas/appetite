@@ -1,6 +1,13 @@
 class LocationsController < ApplicationController
   def index
-  	@locations = Location.all
+
+  	if params[:search] and params[:search] != "" 
+  		@locations = Location.near(params[:search], 20, :units => :km)
+  		@search_mode = true
+  	else
+		@locations = Location.all
+		@search_mode = false
+	end
   end
 
   def new

@@ -30,9 +30,9 @@ $(document).ready(function () {
 
 		var markerIcon = L.icon({
 			iconUrl: "/assets/" + store.color + "marker.png",
-			iconSize: [60, 60],
-			iconAnchor: [30, 60],
-			popupAnchor: [0, -70]
+			iconSize: [30, 30],
+			iconAnchor: [15, 30],
+			popupAnchor: [0, -35]
 		});
 
 		var marker = L.marker(store.location, {	icon: markerIcon });
@@ -47,6 +47,13 @@ $(document).ready(function () {
 
 	map.fitBounds(bounds);
 
+
+	$( "#search" ).submit(function( event ) {
+		event.preventDefault();
+		window.location.replace("/?search=" + encodeURIComponent(jQuery('#search_value').val()));
+	});
+
+	$( "search" );
 
 
 });
