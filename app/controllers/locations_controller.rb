@@ -1,6 +1,5 @@
 class LocationsController < ApplicationController
   def index
-
   	if params[:search] and params[:search] != "" 
   		@locations = Location.near(params[:search], 20, :units => :km)
   		@search_mode = true
@@ -11,15 +10,19 @@ class LocationsController < ApplicationController
   end
 
   def new
-
   	@locations = Location.new()
-
   end
 
   def create
-
-  	@location = Location.create(location_params)
-  	redirect_to root_path
+    @location = Location.new(location_params)
+  	if @location.save
+      flash[:success] = "Location successfully added!"
+      redirect_to root_path
+    else
+      flash[:error] = "Oops, there were some invalid entries in that form."
+      @locations = Location.new(location_params)
+      render :new
+    end
 
   end
 

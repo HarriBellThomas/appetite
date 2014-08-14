@@ -44,8 +44,8 @@ $(document).ready(function () {
 		bounds.extend(store.location);
 	}
 
-	console.log(bounds._northEast.lat)
-	console.log(bounds.lat)
+	//console.log(bounds._northEast.lat)
+	//console.log(bounds.lat)
 
 
 	if(bounds._northEast === undefined){
