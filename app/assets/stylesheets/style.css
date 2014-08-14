@@ -163,6 +163,18 @@ div.input {
 	margin: 20px 0;
 }
 
+div.error, div.success {
+ margin: 0 0 0 20px;
+ width: 360px;
+ color: #fff;
+ padding: 7px 10px;
+}
+div.error {
+ background: #EA6363;
+}
+div.success {
+  background: #C8DF9F;
+}
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {

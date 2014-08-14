@@ -10,7 +10,7 @@ $(document).ready(function () {
 		var store = {};
 		store.location = [$(this).data("lat"), $(this).data("lng")];
 		store.title = $(this).find("h3").text();
-		store.address = $(this).find("p").text();
+		store.address = $(this).find("p").first().text();
 		store.color = "red";
 		stores.push(store);
 
@@ -44,8 +44,16 @@ $(document).ready(function () {
 		bounds.extend(store.location);
 	}
 
+	console.log(bounds._northEast.lat)
+	console.log(bounds.lat)
 
-	map.fitBounds(bounds);
+
+	if(bounds._northEast === undefined){
+		map.fitBounds(bounds.extend([51.525319, -0.110153]));
+	} else {
+		map.fitBounds(bounds);
+	}
+
 
 
 	$( "#search" ).submit(function( event ) {
@@ -57,8 +65,6 @@ $(document).ready(function () {
 			window.location.replace("/");
 		}
 	});
-
-	$( "search" );
 
 
 });

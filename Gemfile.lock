@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/active_admin.git
-  revision: 11be681e33a1303f590414097158abc517bf2db9
+  revision: b8e89c74788199d383963267f4735dccbf292f20
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: git://github.com/tmcdb/steer-rb.git
-  revision: d1476299b56d78ac4edf343247d3731f841e59d0
+  revision: 740844fb2680a58121191a77fe796b4c53e6f82a
   specs:
     steer (0.4.0)
 
@@ -65,7 +65,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
-    devise (3.2.4)
+    devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
